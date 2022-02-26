@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DoAnShopBanGiay.Models.GIAY> 
+@{
+    ViewBag.Title = "SPTheochude";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<h3 style="text-align:center; color:red "> GIÀY THEO CHỦ ĐỀ </h3>
+<div class="row">
+    @foreach (var giay in Model)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Details", "ShoesStore", new { id = giay.Magiay})">
+                    <img alt="@giay.Tengiay" src="~/asset/hinhsanpham/@giay.Anhbia" />
+                </a>
+                <div>
+                    <br />
+                    <h4 style="text-align:center">
+                        @giay.Tengiay
+                    </h4>
+                </div>
+                <p></p>
+                <div class="ratings">
+                    <p class="pull-right">15 reviews</p>
+                    <p>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star">
+                        </span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

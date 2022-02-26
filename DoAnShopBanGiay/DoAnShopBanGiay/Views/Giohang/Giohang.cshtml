@@ -1,0 +1,35 @@
+﻿@using DoAnShopBanGiay.Models
+@model List<Giohang>
+@{
+    ViewBag.Title = "Giohang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">thông tin giỏ hàng </h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td>MÃ GIÀY </td>
+        <td>TÊN GIÀY </td>
+        <td>ẢNH BÌA</td>
+        <td>SỐ LƯỢNG </td>
+        <td>ĐƠN GIÁ </td>
+        <td>THÀNH TIỀN</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr style="text-align:center ; font-weight:bold">
+            <td>@item.iMagiay</td>
+            <td>@item.sTengiay</td>
+            <td><img src="~/asset/hinhsanpham/@item.sAnhbia"/></td>
+            <td>@item.iSoluong</td>
+            <td>@String.Format("{0:0,0}", item.dDongia)</td>
+            <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
+        </tr>
+    }
+    <tr style="font-weight:bold; text-align:right; color:red">
+        <td colspan="3">Số lượng giày : @ViewBag.Tongsoluong </td>
+        <td colspan="3">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ</td>
+    </tr>
+
+</table>
+
